@@ -142,54 +142,6 @@ function kholis_breadcrumbs() {
   }
 }
 /* End of breadcrumb */
-//META BOX
-add_action( 'init', 'create_events' );
-function create_events() {
-  $labels = array(
-    'name' => _x('Events', 'post type general name'),
-    'singular_name' => _x('Event', 'post type singular name'),
-    'add_new' => _x('Add New', 'Event'),
-    'add_new_item' => __('Add New Event'),
-    'edit_item' => __('Edit Event'),
-    'new_item' => __('New Event'),
-    'view_item' => __('View Event'),
-    'search_items' => __('Search Events'),
-    'not_found' =>  __('No Events found'),
-    'not_found_in_trash' => __('No Events found in Trash'),
-    'parent_item_colon' => ''
-  );
-
-  $supports = array('title', 'editor', 'custom-fields', 'revisions', 'excerpt');
-
-  register_post_type( 'event',
-    array(
-      'labels' => $labels,
-      'public' => true,
-      'supports' => $supports
-    )
-  );
-}
-
-add_action( 'init', 'create_locations' );
-function create_locations() {
- $labels = array(
-    'name' => _x( 'Locations', 'taxonomy general name' ),
-    'singular_name' => _x( 'Location', 'taxonomy singular name' ),
-    'search_items' =>  __( 'Search Locations' ),
-    'all_items' => __( 'All Locations' ),
-    'parent_item' => __( 'Parent Location' ),
-    'parent_item_colon' => __( 'Parent Location:' ),
-    'edit_item' => __( 'Edit Location' ),
-    'update_item' => __( 'Update Location' ),
-    'add_new_item' => __( 'Add New Location' ),
-    'new_item_name' => __( 'New Location Name' ),
-  );  
-
-  register_taxonomy('location','event',array(
-    'hierarchical' => true,
-    'labels' => $labels
-  ));
-} 
 /*
 ---------------------
 Custom Field
